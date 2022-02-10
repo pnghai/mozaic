@@ -22,7 +22,11 @@ module Mozaic
     end
 
     def define_component(name, options = {}, &block)
-      Mozaic::Component.new name.to_sym, options, &block
+      if block_given?
+        Mozaic::Component.new name.to_sym, options, &block
+      else
+        Mozaic::Component.new name.to_sym, options
+      end
     end
   end
 end
