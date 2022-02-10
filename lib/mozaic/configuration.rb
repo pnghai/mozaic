@@ -22,7 +22,7 @@ module Mozaic
     end
 
     def define_component(name, options = {}, &block)
-      Mozaic::Component.new name.to_sym, options, proc &block
+      Mozaic::Component.new name.to_sym, options, &block
     end
   end
 end
