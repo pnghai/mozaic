@@ -21,12 +21,8 @@ module Mozaic
       @stylesheets = 'app/javascript/stylesheets'
     end
 
-    def define_component(name, options = {})
-      if block_given?
-        Mozaic::Component.new name.to_sym, options, &Proc.new
-      else
-        Mozaic::Component.new name.to_sym, options
-      end
+    def define_component(name, options = {}, &block)
+      Mozaic::Component.new name.to_sym, options, proc &block
     end
   end
 end
